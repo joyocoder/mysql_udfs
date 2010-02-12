@@ -1,5 +1,6 @@
-linux: 
+linux: \
  libjoyo.so
 
 libjoyo.so: \
- gcc -Wall -fPIC -Ijs -Imysql_include -Ijs -I. -shared libjoyo.c libjs.a -o libjoyo.so
+ 
+	gcc -Wall -fPIC -Imysql_include -I/usr/include -I. -shared libjoyo.c /usr/lib/libjs.a -o libjoyo.so
