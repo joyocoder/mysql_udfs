@@ -1,0 +1,13 @@
+#!/bin/sh
+clear
+/etc/init.d/mysql stop
+rm *.so
+echo MAKING
+make
+cp *.so /usr/lib
+mkdir /usr/lib/mysql
+mkdir /usr/lib/mysql/plugin
+cp *.so /usr/lib/mysql/plugin
+ldconfig
+/etc/init.d/mysql start
+mysql -u root -proot < install.sql
