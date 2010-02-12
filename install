@@ -10,4 +10,4 @@ mkdir /usr/lib/mysql/plugin
 cp *.so /usr/lib/mysql/plugin
 ldconfig
 /etc/init.d/mysql start
-mysql -u root -proot < install.sql
+mysql -u root -proot -e "install.sql"
