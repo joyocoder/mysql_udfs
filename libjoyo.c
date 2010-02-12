@@ -67,6 +67,14 @@ DLLEXP void	jsmap_deinit(UDF_INIT *initid);
 DLLEXP char *	jsmap(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *length, char *is_null, char *error);
 
 
+DLLEXP my_bool	jsreduce_init(UDF_INIT *initid,	UDF_ARGS *args,	char *message);
+DLLEXP void		jsreduce_deinit(UDF_INIT *initid);
+DLLEXP void     jsreduce_clear( UDF_INIT* initid, char* is_null, char *error );
+DLLEXP void     jsreduce_add( UDF_INIT* initid, UDF_ARGS* args, char* is_null, char *error );
+DLLEXP char *   jsreduce(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *length, char *is_null, char *error);
+
+
+
 DLLEXP my_bool	tagcloud_init(UDF_INIT *initid,	UDF_ARGS *args,	char *message);
 DLLEXP void		tagcloud_deinit(UDF_INIT *initid);
 DLLEXP void     tagcloud_clear( UDF_INIT* initid, char* is_null, char *error );
@@ -189,6 +197,7 @@ int nextWord(char ** input, char * buffer, int *len, int *wlen)
 #include "fun_tagcloud.c"
 #include "fun_iops.c"
 #include "fun_jsmap.c"
+#include "fun_jsreduce.c"
 
 #endif /* HAVE_DLOPEN */
 
