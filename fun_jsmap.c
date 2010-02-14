@@ -1,23 +1,3 @@
-JSRuntime *rt = 0;
-
-typedef struct resultbuffer
-{
-	char 	*script_buffer;
-	size_t 	script_sz;
-	char 	*result_buffer;
-	size_t   result_sz;
-	JSContext *cx;
-	JSObject  *global;
-} RESULT_BUFFER;
-
-static JSClass global_class = {
- "global",0,
- JS_PropertyStub,JS_PropertyStub,JS_PropertyStub,JS_PropertyStub,
- JS_EnumerateStub,JS_ResolveStub,JS_ConvertStub,JS_FinalizeStub
-};
-
-
-
 my_bool	jsmap_init(UDF_INIT *initid,	UDF_ARGS *args,	char *message)
 {
 	RESULT_BUFFER * gold;
@@ -93,6 +73,7 @@ char *  jsmap(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *len
 	{
 		sz = sz * 2 + 256; // grow the buffer
 		gold->script_buffer = (char*) realloc(gold->script_buffer,sz);
+		gold->script_sz = sz;
 	}
 
 	// manual sprintf (fixes the bug with args->args[0] being not null terminated....
