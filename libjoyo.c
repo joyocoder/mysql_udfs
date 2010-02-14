@@ -196,6 +196,7 @@ int nextWord(char ** input, char * buffer, int *len, int *wlen)
 #include "fun_jit.c"
 #include "fun_tagcloud.c"
 #include "fun_iops.c"
+#include "core_js.c"
 #include "fun_jsmap.c"
 #include "fun_jsreduce.c"
 
